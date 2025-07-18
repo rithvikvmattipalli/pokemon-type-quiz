@@ -3,7 +3,7 @@ import { allTypes, typeChart } from '../data/typeData';
 import { shuffleArray, normalizeInput } from '../utils/helpers';
 import { getResultColor, getResultTextColor, getResultOutline } from '../utils/effectivenessUtils';
 import { COLORS } from '../utils/colors';
-import DualTypeChart from './DualTypeChart';
+import DualTypeChart from './dualTypeChart';
 
 function TypeChartFill() {
     const [inputs, setInputs] = useState({});
