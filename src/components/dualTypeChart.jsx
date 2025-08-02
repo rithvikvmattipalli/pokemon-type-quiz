@@ -3,6 +3,7 @@ import { allTypes, typeChart } from '../data/typeData';
 import { normalizeInput } from '../utils/helpers';
 import { getResultColor, getResultTextColor, getResultOutline } from '../utils/effectivenessUtils';
 import { COLORS } from '../utils/colors';
+import { TYPE_SYMBOL_LETTERS } from '../utils/typeSymbols'; 
 
 export default function DualTypeChart({ shuffle, activeTypes }) {
     const [comboType1, setComboType1] = useState(allTypes[0]);
@@ -61,7 +62,6 @@ export default function DualTypeChart({ shuffle, activeTypes }) {
             height: '48px',
             lineHeight: '48px',
             fontWeight: 'bold',
-            textTransform: 'uppercase',
             letterSpacing: '1px',
             fontSize: '0.95em',
             overflow: 'hidden',
@@ -295,7 +295,10 @@ export default function DualTypeChart({ shuffle, activeTypes }) {
                                     }}
                                     title={attacker}
                                 >
-                                    {attacker.toUpperCase()}
+                                    {(<><span style={
+                                            { fontFamily: 'type-font', fontSize: '1.75em', marginRight: '0.1em' }
+                                            }>{TYPE_SYMBOL_LETTERS[attacker]}</span><span>{attacker.toUpperCase()}</span></>
+                                        )}
                                 </td>
 
                                 {/* input for effectiveness values */}

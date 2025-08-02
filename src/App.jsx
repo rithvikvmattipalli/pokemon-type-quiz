@@ -4,7 +4,7 @@ import TypeChartFill from './components/typeChartFill';
 function App() {
   return (
     <div className="App">
-      <h1>Pokémon Type Effectiveness Quiz</h1>
+      <h1 className="pokemon-font">Pokémon Type Effectiveness Quiz</h1>
       <TypeChartFill />
     </div>
   );

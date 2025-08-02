@@ -1,9 +1,11 @@
-import { useState, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { allTypes, typeChart } from '../data/typeData';
 import { shuffleArray, normalizeInput } from '../utils/helpers';
 import { getResultColor, getResultTextColor, getResultOutline } from '../utils/effectivenessUtils';
 import { COLORS } from '../utils/colors';
 import DualTypeChart from './dualTypeChart';
+import { TYPE_SYMBOL_LETTERS } from '../utils/typeSymbols'; 
+
 
 function TypeChartFill() {
     const [inputs, setInputs] = useState({});
@@ -19,6 +21,16 @@ function TypeChartFill() {
 
     const timeoutRefs = useRef({});
     const inputRefs = useRef({});
+
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+    const handleResize = () => {
+        setIsMobile(window.innerWidth < 1000); // might need adjustment
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     function toggleShuffle() {
         if (shuffle) {
@@ -263,15 +275,31 @@ function TypeChartFill() {
         verticalAlign: 'middle',
     };}
 
-    return (
+        return (
         <div style={{ width: '100%'}}>
-            <h2>Fill Out the Pokémon Type Effectiveness Chart</h2>
+            <p style={{
+                maxWidth: '800px',
+                margin: '0 auto 1em auto',
+                fontSize: '0.95em',
+                lineHeight: '1.5',
+                textAlign: 'center',
+                color: '#333',
+            }}>
+            Think you know your type matchups? 
+            Fill in how effective (2x, 1x, 0.5x) each attacking type is against each defender. 
+            You can click on a specific row/column to highlight it and solve or reset just that section. 
+            Shuffle the order for a twist, or auto-solve to learn. Scroll down to try dual-type matchups too!
+            </p>
+            {/* Shuffle button */}
 
-            {/* Checkbox to toggle type order shuffle */}
-            <label>
+            <label className="switch">
                 <input type="checkbox" checked={shuffle} onChange={toggleShuffle} />
-                Shuffle Type Order
+                <span className="slider"></span>
+                <span style={{ marginLeft: '8px', userSelect: 'none'}}>Shuffle Type Order</span>
             </label>
+
+
+            <h2>Single-Type Effectiveness Chart</h2>
 
             {/* Reset button to clear inputs */}
             <button
@@ -371,7 +399,16 @@ function TypeChartFill() {
                                     onClick={() => handleColSelect(type)}
                                     tabIndex={0}
                                 >
-                                    {type.toUpperCase()}
+                                    {/* {type.toUpperCase()} */}
+                                    {isMobile ? 
+                                        (<span style={
+                                            {fontFamily: 'type-font', fontSize: '1.75em', }
+                                            }>{TYPE_SYMBOL_LETTERS[type]}</span>
+                                        ) 
+                                        :
+                                        (<span>{type.toUpperCase()}</span>
+                                        )
+                                    }
                                 </button>
                             </th>
                         ))}
@@ -415,7 +452,16 @@ function TypeChartFill() {
                                     onClick={() => handleRowSelect(attacker)}
                                     tabIndex={0}
                                 >
-                                    {attacker.toUpperCase()}
+                                    {/* {attacker.toUpperCase()} */}
+                                    {isMobile ? 
+                                        (<span style={
+                                            {fontFamily: 'type-font', fontSize: '1.75em', }
+                                            }>{TYPE_SYMBOL_LETTERS[attacker]}</span>
+                                        ) 
+                                        :
+                                        (<span>{attacker.toUpperCase()}</span>
+                                        )
+                                    }
                                 </button>
                             </td>
 
@@ -495,43 +541,3 @@ function TypeChartFill() {
 }
 
 export default TypeChartFill;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

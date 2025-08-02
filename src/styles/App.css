@@ -41,3 +41,59 @@
   color: #888;
 }
 
+/* The switch - the container */
+.switch {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Hide default checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+/* The slider */
+.slider {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.3s;
+  margin-right: 8px;
+}
+
+/* The circle inside the slider */
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+/* When checked, background color changes */
+.switch input:checked + .slider {
+  background-color: #4caf50; /* green, you can customize */
+}
+
+/* Move the circle to the right when checked */
+.switch input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
+/* Optional: focus outline */
+.switch input:focus + .slider {
+  box-shadow: 0 0 3px 2px #4caf50aa;
+}
+
+

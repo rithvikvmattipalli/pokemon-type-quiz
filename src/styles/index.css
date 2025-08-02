@@ -66,3 +66,55 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+
+@font-face {
+  font-family: 'type-font';
+  src: url('../assets/fonts/EssentiarumVGWeb.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.type-font {
+  font-family: 'type-font', sans-serif;
+}
+
+
+
+
+@font-face {
+  font-family: 'PokemonSolid';
+  src: url('../assets/fonts/PokemonSolid.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.pokemon-font {
+  font-family: 'PokemonSolid', sans-serif;
+  font-size: 3.5rem;
+  color: #FFCB05; /* Pokémon yellow */
+
+  text-shadow:
+    /* Outline layers - stacked closer in */
+    -1px -1px 0 #2A75BB,
+     0px -1px 0 #2A75BB,
+     1px -1px 0 #2A75BB,
+    -1px  0px 0 #2A75BB,
+     1px  0px 0 #2A75BB,
+    -1px  1px 0 #2A75BB,
+     0px  1px 0 #2A75BB,
+     1px  1px 0 #2A75BB,
+
+    /* Thicker perimeter for the bold logo feel */
+    -2px -2px 0 #2A75BB,
+     2px -2px 0 #2A75BB,
+    -2px  2px 0 #2A75BB,
+     2px  2px 0 #2A75BB,
+    -3px -3px 0 #2A75BB,
+     3px -3px 0 #2A75BB,
+    -3px  3px 0 #2A75BB,
+     3px  3px 0 #2A75BB,
+
+    /* Drop shadow - subtle depth */
+     4px 4px 0 #0A285F,
+     5px 5px 0 #0A285F;
+}
