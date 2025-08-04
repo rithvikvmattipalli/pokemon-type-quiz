@@ -283,7 +283,6 @@ function TypeChartFill() {
                 fontSize: '0.95em',
                 lineHeight: '1.5',
                 textAlign: 'center',
-                color: '#333',
             }}>
             Think you know your type matchups? 
             Fill in how effective (2x, 1x, 0.5x) each attacking type is against each defender. 

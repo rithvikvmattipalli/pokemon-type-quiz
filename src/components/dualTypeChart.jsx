@@ -116,6 +116,8 @@ export default function DualTypeChart({ shuffle, activeTypes }) {
                                     height: '48px',
                                     width: '100%',
                                     gap: '0.5em',
+                                    textAlign: 'center',
+                                    textAlignLast: 'center'
                                 }}
                             >
 
