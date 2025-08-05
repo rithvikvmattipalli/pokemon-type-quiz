@@ -1,6 +1,7 @@
 # Pokémon Type Effectiveness Quiz
 
-An interactive web app to test and learn Pokémon type matchups — both single-type and dual-type. Built with **React** and **Vite**, this app is designed to be educational, responsive, and easy to use.  
+An interactive web app to test and learn Pokémon type matchups — both single-type and dual-type. Built with **React** and **Vite**, this app is designed to be educational, responsive, and easy to use.
+  
 **Check it out here:** [https://pokemon-type-quiz-rithvik.vercel.app/](https://pokemon-type-quiz-rithvik.vercel.app/)
 
 ---
